@@ -2,6 +2,7 @@ const Search = ({ searchText, setFilter }) => {
   let inputHandler = (e) => {
     //convert input text to lower case
     var lowerCase = e.target.value.toLowerCase();
+    console.log(lowerCase);
     searchText(lowerCase);
   };
 

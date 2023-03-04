@@ -7,10 +7,10 @@ const getInitialTheme = () => {
         if (typeof storedPrefs === "string") {
             return storedPrefs;
         }
-        if(window.matchMedia("(prefers-color-scheme: dark)").matches){
-            return "dark"
+        if(window.matchMedia("(prefers-color-scheme: light)").matches){
+            return "light"
         }
-        return "light";
+        return "dark";
     }
 }
 
@@ -20,9 +20,9 @@ export const ThemeProvider = ({ initialTheme, children}) => {
 
     const checkTheme = (existing) => {
         const root = window.document.documentElement;
-        const isDark = existing === "dark";
+        const isDark = existing === "light";
 
-        root.classList.remove(isDark ? 'light' : 'dark');
+        root.classList.remove(isDark ? 'dark' : 'light');
         root.classList.add(existing);
     
         localStorage.setItem('current-theme', existing);
